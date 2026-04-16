@@ -646,14 +646,13 @@ USE: "content assets," "the red thread," "signal vs. noise," "brand clock," "voi
 - Reference newsletter issues when helpful (render as cards)
 
 ## ISSUE RECOMMENDATIONS
-When recommending specific Red Threads issues, mention them by title naturally in your response like "Signal vs. Noise covers this" or "check out The Brand Clock". The system will automatically detect these title references and render issue cards with working links.
+When recommending specific Red Threads issues, mention them by title naturally in your response like "The Brand Clock covers this" or "check out Getting Unstuck". The system will automatically detect these title references and render issue cards with working links.
 
 Key available issues (verified titles only):
 - "What is Red Threads?" - Core philosophy and mission  
 - "The First Mile" - Getting started, overcoming initial hurdles
 - "Finding Your Voice" - Voice development and authenticity
 - "Thinking in Frameworks" - Building reusable mental models  
-- "Signal vs. Noise" - Content quality and strategic focus
 - "The Last Mile" - Conversion optimization and business outcomes
 - "Three-Piece Marketing" - Content distribution framework
 - "The Art of Being Seen" - Personal branding for introverts
@@ -662,6 +661,7 @@ Key available issues (verified titles only):
 - "The AI-Proof Brand Skill" - Human context in AI era
 - "Getting Unstuck" - When growth stalls
 - "Speedy" - Operational velocity and efficiency
+- "Focus & Finish" - Completing projects and avoiding the 90% trap
 
 ## SCOPE
 FOR: Content strategy, brand positioning, media format decisions, marketing frameworks, sustainable growth, operational efficiency, creative direction
@@ -735,9 +735,8 @@ function autoResize() {
 }
 
 // ─── ISSUE DATA ──────────────────────────────────────────────────────────────
-// ONLY verified titles and URLs from the provided fact sheet
+// ONLY verified working URLs provided by user
 const ISSUE_DATA = {
-  // Using exact titles and URLs from verified fact sheet
   "stuck-inside": { title: "Stuck Inside", url: "https://jmedia.beehiiv.com/p/stuck-inside", tags: ["Operations", "Strategy"] },
   "opening-night": { title: "Opening Night", url: "https://jmedia.beehiiv.com/p/opening-night", tags: ["Practice", "Strategy"] },
   "real-business": { title: "Real Business", url: "https://jmedia.beehiiv.com/p/real-business", tags: ["Strategy", "Operations"] },
@@ -754,7 +753,10 @@ const ISSUE_DATA = {
   "three-piece-marketing": { title: "Three-Piece Marketing", url: "https://jmedia.beehiiv.com/p/three-piece-marketing", tags: ["Tactics", "Strategy"] },
   "what-is-social-media-for": { title: "What is Social Media For?", url: "https://jmedia.beehiiv.com/p/what-is-social-media-for", tags: ["Media", "Strategy"] },
   "the-last-mile": { title: "The Last Mile", url: "https://jmedia.beehiiv.com/p/the-last-mile", tags: ["Strategy", "Operations"] },
-  "signal-vs-noise": { title: "Signal vs. Noise", url: "https://jmedia.beehiiv.com/p/signal-vs-noise", tags: ["Strategy", "Media"] },
+  "getting-noticed": { title: "Getting Noticed", url: "https://jmedia.beehiiv.com/p/getting-noticed", tags: ["Strategy", "Media"] },
+  "beyond-the-bio": { title: "Beyond the Bio", url: "https://jmedia.beehiiv.com/p/beyond-the-bio", tags: ["Strategy", "Personal"] },
+  "the-prompt-playground": { title: "The Prompt Playground", url: "https://jmedia.beehiiv.com/p/the-prompt-playground", tags: ["AI", "Tactics"] },
+  "the-creative-edge": { title: "The Creative Edge", url: "https://jmedia.beehiiv.com/p/the-creative-edge", tags: ["Creativity", "Strategy"] },
   "the-infinite-game": { title: "The Infinite Game", url: "https://jmedia.beehiiv.com/p/the-infinite-game", tags: ["Philosophy", "Strategy"] },
   "focus-and-finish": { title: "Focus & Finish", url: "https://jmedia.beehiiv.com/p/focus-and-finish", tags: ["Operations", "Practice"] },
   "the-cost-of-silence": { title: "The Cost of Silence", url: "https://jmedia.beehiiv.com/p/the-cost-of-silence", tags: ["Strategy", "Entrepreneurs"] },
