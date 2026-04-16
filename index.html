@@ -646,22 +646,22 @@ USE: "content assets," "the red thread," "signal vs. noise," "brand clock," "voi
 - Reference newsletter issues when helpful (render as cards)
 
 ## ISSUE RECOMMENDATIONS
-When recommending specific Red Threads issues, simply mention them naturally in your response like "Issue 11 covers this" or "check out Issue 21". The system will automatically detect these references and render issue cards.
+When recommending specific Red Threads issues, mention them by title naturally in your response like "Signal vs. Noise covers this" or "check out The Brand Clock". The system will automatically detect these title references and render issue cards with working links.
 
-Key available issues (by topic):
-- Issue 2: "What is Red Threads?" - Core philosophy and mission
-- Issue 3: "The First Mile" - Getting started, overcoming initial hurdles
-- Issue 4: "Finding Your Voice" - Voice development and authenticity
-- Issue 5: "Thinking in Frameworks" - Building reusable mental models
-- Issue 11: "Signal vs. Noise" - Content quality and strategic focus
-- Issue 12: "The Last Mile" - Conversion optimization and business outcomes
-- Issue 14: "Three-Piece Marketing" - Content distribution framework
-- Issue 16: "The Art of Being Seen" - Personal branding for introverts
-- Issue 20: "Should you have a podcast?" - Media format decision-making
-- Issue 21: "The Brand Clock" - Strategic timing for brand investments
-- Issue 22: "The AI-Proof Brand Skill" - Human context in AI era
-- Issue 23: "Getting Unstuck" - When growth stalls
-- Issue 24: "Speedy" - Operational velocity and efficiency
+Key available issues (verified titles only):
+- "What is Red Threads?" - Core philosophy and mission  
+- "The First Mile" - Getting started, overcoming initial hurdles
+- "Finding Your Voice" - Voice development and authenticity
+- "Thinking in Frameworks" - Building reusable mental models  
+- "Signal vs. Noise" - Content quality and strategic focus
+- "The Last Mile" - Conversion optimization and business outcomes
+- "Three-Piece Marketing" - Content distribution framework
+- "The Art of Being Seen" - Personal branding for introverts
+- "Should you have a podcast?" - Media format decision-making
+- "The Brand Clock" - Strategic timing for brand investments
+- "The AI-Proof Brand Skill" - Human context in AI era
+- "Getting Unstuck" - When growth stalls
+- "Speedy" - Operational velocity and efficiency
 
 ## SCOPE
 FOR: Content strategy, brand positioning, media format decisions, marketing frameworks, sustainable growth, operational efficiency, creative direction
@@ -735,34 +735,35 @@ function autoResize() {
 }
 
 // ─── ISSUE DATA ──────────────────────────────────────────────────────────────
+// ONLY verified titles and URLs from the provided fact sheet
 const ISSUE_DATA = {
-  // Most recent issues (newest to oldest based on verified archive)
-  27: { title: "Stuck Inside", url: "https://jmedia.beehiiv.com/p/stuck-inside", tags: ["Operations", "Strategy"] },
-  26: { title: "Opening Night", url: "https://jmedia.beehiiv.com/p/opening-night", tags: ["Practice", "Strategy"] },
-  25: { title: "Real Business", url: "https://jmedia.beehiiv.com/p/real-business", tags: ["Strategy", "Operations"] },
-  24: { title: "Speedy", url: "https://jmedia.beehiiv.com/p/speedy", tags: ["Operations", "Practice"] },
-  23: { title: "Getting Unstuck", url: "https://jmedia.beehiiv.com/p/getting-unstuck", tags: ["Strategy", "Psychology"] },
-  22: { title: "The AI-Proof Brand Skill", url: "https://jmedia.beehiiv.com/p/the-ai-proof-brand-skill", tags: ["Strategy", "FutureOfWork"] },
-  21: { title: "The Brand Clock", url: "https://jmedia.beehiiv.com/p/the-brand-clock", tags: ["Strategy", "Framework"] },
-  20: { title: "Should you have a podcast?", url: "https://jmedia.beehiiv.com/p/should-you-have-a-podcast", tags: ["Media", "Tactics"] },
-  19: { title: "On Building a Practice", url: "https://jmedia.beehiiv.com/p/on-building-a-practice", tags: ["Practice", "Philosophy"] },
-  18: { title: "Desires, Beliefs, & Brands", url: "https://jmedia.beehiiv.com/p/desires-beliefs-and-brands", tags: ["Strategy", "Psychology"] },
-  17: { title: "3 Hurdles", url: "https://jmedia.beehiiv.com/p/3-hurdles", tags: ["Strategy", "Operations"] },
-  16: { title: "The Art of Being Seen", url: "https://jmedia.beehiiv.com/p/the-art-of-being-seen", tags: ["Media", "Psychology"] },
-  15: { title: "Mirror Image", url: "https://jmedia.beehiiv.com/p/mirror-image", tags: ["Strategy", "Psychology"] },
-  14: { title: "Three-Piece Marketing", url: "https://jmedia.beehiiv.com/p/three-piece-marketing", tags: ["Tactics", "Strategy"] },
-  13: { title: "What is Social Media For?", url: "https://jmedia.beehiiv.com/p/what-is-social-media-for", tags: ["Media", "Strategy"] },
-  12: { title: "The Last Mile", url: "https://jmedia.beehiiv.com/p/the-last-mile", tags: ["Strategy", "Operations"] },
-  11: { title: "Signal vs. Noise", url: "https://jmedia.beehiiv.com/p/signal-vs-noise", tags: ["Strategy", "Media"] },
-  10: { title: "The Infinite Game", url: "https://jmedia.beehiiv.com/p/the-infinite-game", tags: ["Philosophy", "Strategy"] },
-  9: { title: "Focus & Finish", url: "https://jmedia.beehiiv.com/p/focus-and-finish", tags: ["Operations", "Practice"] },
-  8: { title: "The Cost of Silence", url: "https://jmedia.beehiiv.com/p/the-cost-of-silence", tags: ["Strategy", "Entrepreneurs"] },
-  7: { title: "The Middle", url: "https://jmedia.beehiiv.com/p/the-middle", tags: ["Practice", "Entrepreneurs"] },
-  6: { title: "Sustainable Ambition", url: "https://jmedia.beehiiv.com/p/sustainable-ambition", tags: ["Philosophy", "Practice"] },
-  5: { title: "Thinking in Frameworks", url: "https://jmedia.beehiiv.com/p/thinking-in-frameworks", tags: ["Strategy", "DesignThinking"] },
-  4: { title: "Finding Your Voice", url: "https://jmedia.beehiiv.com/p/finding-your-voice", tags: ["Tactics", "Media"] },
-  3: { title: "The First Mile", url: "https://jmedia.beehiiv.com/p/the-first-mile", tags: ["Practice", "Operations"] },
-  2: { title: "What is Red Threads?", url: "https://jmedia.beehiiv.com/p/what-is-red-threads", tags: ["Philosophy", "Strategy"] }
+  // Using exact titles and URLs from verified fact sheet
+  "stuck-inside": { title: "Stuck Inside", url: "https://jmedia.beehiiv.com/p/stuck-inside", tags: ["Operations", "Strategy"] },
+  "opening-night": { title: "Opening Night", url: "https://jmedia.beehiiv.com/p/opening-night", tags: ["Practice", "Strategy"] },
+  "real-business": { title: "Real Business", url: "https://jmedia.beehiiv.com/p/real-business", tags: ["Strategy", "Operations"] },
+  "speedy": { title: "Speedy", url: "https://jmedia.beehiiv.com/p/speedy", tags: ["Operations", "Practice"] },
+  "getting-unstuck": { title: "Getting Unstuck", url: "https://jmedia.beehiiv.com/p/getting-unstuck", tags: ["Strategy", "Psychology"] },
+  "the-ai-proof-brand-skill": { title: "The AI-Proof Brand Skill", url: "https://jmedia.beehiiv.com/p/the-ai-proof-brand-skill", tags: ["Strategy", "FutureOfWork"] },
+  "the-brand-clock": { title: "The Brand Clock", url: "https://jmedia.beehiiv.com/p/the-brand-clock", tags: ["Strategy", "Framework"] },
+  "should-you-have-a-podcast": { title: "Should you have a podcast?", url: "https://jmedia.beehiiv.com/p/should-you-have-a-podcast", tags: ["Media", "Tactics"] },
+  "on-building-a-practice": { title: "On Building a Practice", url: "https://jmedia.beehiiv.com/p/on-building-a-practice", tags: ["Practice", "Philosophy"] },
+  "desires-beliefs-and-brands": { title: "Desires, Beliefs, & Brands", url: "https://jmedia.beehiiv.com/p/desires-beliefs-and-brands", tags: ["Strategy", "Psychology"] },
+  "3-hurdles": { title: "3 Hurdles", url: "https://jmedia.beehiiv.com/p/3-hurdles", tags: ["Strategy", "Operations"] },
+  "the-art-of-being-seen": { title: "The Art of Being Seen", url: "https://jmedia.beehiiv.com/p/the-art-of-being-seen", tags: ["Media", "Psychology"] },
+  "mirror-image": { title: "Mirror Image", url: "https://jmedia.beehiiv.com/p/mirror-image", tags: ["Strategy", "Psychology"] },
+  "three-piece-marketing": { title: "Three-Piece Marketing", url: "https://jmedia.beehiiv.com/p/three-piece-marketing", tags: ["Tactics", "Strategy"] },
+  "what-is-social-media-for": { title: "What is Social Media For?", url: "https://jmedia.beehiiv.com/p/what-is-social-media-for", tags: ["Media", "Strategy"] },
+  "the-last-mile": { title: "The Last Mile", url: "https://jmedia.beehiiv.com/p/the-last-mile", tags: ["Strategy", "Operations"] },
+  "signal-vs-noise": { title: "Signal vs. Noise", url: "https://jmedia.beehiiv.com/p/signal-vs-noise", tags: ["Strategy", "Media"] },
+  "the-infinite-game": { title: "The Infinite Game", url: "https://jmedia.beehiiv.com/p/the-infinite-game", tags: ["Philosophy", "Strategy"] },
+  "focus-and-finish": { title: "Focus & Finish", url: "https://jmedia.beehiiv.com/p/focus-and-finish", tags: ["Operations", "Practice"] },
+  "the-cost-of-silence": { title: "The Cost of Silence", url: "https://jmedia.beehiiv.com/p/the-cost-of-silence", tags: ["Strategy", "Entrepreneurs"] },
+  "the-middle": { title: "The Middle", url: "https://jmedia.beehiiv.com/p/the-middle", tags: ["Practice", "Entrepreneurs"] },
+  "sustainable-ambition": { title: "Sustainable Ambition", url: "https://jmedia.beehiiv.com/p/sustainable-ambition", tags: ["Philosophy", "Practice"] },
+  "thinking-in-frameworks": { title: "Thinking in Frameworks", url: "https://jmedia.beehiiv.com/p/thinking-in-frameworks", tags: ["Strategy", "DesignThinking"] },
+  "finding-your-voice": { title: "Finding Your Voice", url: "https://jmedia.beehiiv.com/p/finding-your-voice", tags: ["Tactics", "Media"] },
+  "the-first-mile": { title: "The First Mile", url: "https://jmedia.beehiiv.com/p/the-first-mile", tags: ["Practice", "Operations"] },
+  "what-is-red-threads": { title: "What is Red Threads?", url: "https://jmedia.beehiiv.com/p/what-is-red-threads", tags: ["Philosophy", "Strategy"] }
 };
 
 // ─── EXTRACT ISSUE REFERENCES ────────────────────────────────────────────────
@@ -770,29 +771,28 @@ function extractIssueRefs(text) {
   console.log('🔍 Extracting issue refs from:', text);
   const refs = [];
   
-  // Look for patterns like "Issue 7", "issue 10", "#7", etc.
-  const patterns = [
-    /Issue\s+(\d+)/gi,
-    /issue\s+(\d+)/gi,
-    /#(\d+)/g,
-    /\b(\d+)\b/g  // Any number that might be an issue reference
-  ];
+  // Look for title patterns in the text that match our verified issues
+  const issueKeys = Object.keys(ISSUE_DATA);
   
-  const foundNumbers = new Set();
-  
-  patterns.forEach(pattern => {
-    let match;
-    while ((match = pattern.exec(text)) !== null) {
-      const num = parseInt(match[1]);
-      if (num >= 1 && num <= 27 && ISSUE_DATA[num]) {
-        foundNumbers.add(num);
-      }
+  for (const slug of issueKeys) {
+    const issue = ISSUE_DATA[slug];
+    const title = issue.title;
+    
+    // Check if the title (or parts of it) appear in the text
+    const titleWords = title.toLowerCase();
+    const textLower = text.toLowerCase();
+    
+    // Look for exact title matches or key phrases
+    if (textLower.includes(titleWords) || 
+        textLower.includes(title.toLowerCase()) ||
+        (title.includes('&') && textLower.includes(title.replace('&', 'and').toLowerCase())) ||
+        (title.includes('?') && textLower.includes(title.replace('?', '').toLowerCase()))) {
+      refs.push(slug);
     }
-  });
+  }
   
-  const result = Array.from(foundNumbers).sort((a, b) => a - b);
-  console.log('📋 Found issue references:', result);
-  return result;
+  console.log('📋 Found issue references:', refs);
+  return refs;
 }
 
 // ─── ADD MESSAGE ──────────────────────────────────────────────────────────────
@@ -833,11 +833,11 @@ function addMessage(sender, text) {
       const cardsDiv = document.createElement('div');
       cardsDiv.className = 'issue-cards';
       
-      issueRefs.forEach(num => {
-        const issue = ISSUE_DATA[num];
+      issueRefs.forEach(slug => {
+        const issue = ISSUE_DATA[slug];
         if (!issue) return;
         
-        console.log(`Rendering issue card ${num}:`, issue);
+        console.log(`Rendering issue card for ${slug}:`, issue);
         const card = document.createElement('a');
         card.className = 'issue-card';
         card.href = issue.url;
@@ -845,7 +845,7 @@ function addMessage(sender, text) {
         card.rel = 'noopener noreferrer';
         
         card.innerHTML = `
-          <div class="issue-num">#${num}</div>
+          <div class="issue-num">RT</div>
           <div class="issue-info">
             <div class="issue-title">${issue.title}</div>
             <div class="issue-tags">${issue.tags.map(t => `<span class="issue-tag">${t}</span>`).join('')}</div>
