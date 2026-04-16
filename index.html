@@ -775,7 +775,11 @@ function addMessage(sender, text) {
   bubble.className = `bubble ${sender}`;
 
   if (sender === 'agent') {
+    console.log('Processing agent message:', text);
     const { cleanText, cards } = parseIssueCards(text);
+    console.log('After parseIssueCards - cleanText:', cleanText);
+    console.log('After parseIssueCards - cards:', cards);
+    console.log('Cards length:', cards ? cards.length : 'cards is null/undefined');
     
     // Add main text (filter out any remaining ISSUE_CARDS lines)
     const lines = cleanText.split('\n')
@@ -789,7 +793,7 @@ function addMessage(sender, text) {
     });
 
     // Add issue cards if present
-    if (cards.length > 0) {
+    if (cards && cards.length > 0) {
       console.log('Rendering', cards.length, 'issue cards:', cards);
       const cardsDiv = document.createElement('div');
       cardsDiv.className = 'issue-cards';
@@ -815,7 +819,7 @@ function addMessage(sender, text) {
       bubble.appendChild(cardsDiv);
       console.log('Issue cards appended to bubble');
     } else {
-      console.log('No issue cards to render');
+      console.log('No issue cards to render - cards:', cards);
     }
   } else {
     bubble.textContent = text;
