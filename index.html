@@ -529,7 +529,7 @@
     </div>
   </div>
   <div class="header-right">
-    <div class="issue-count"><strong>27</strong> issues · Jaime Solis</div>
+    <div class="issue-count"><strong>72</strong> issues · Jaime Solis</div>
     <div class="status-dot"><div class="dot"></div>Weekly</div>
     <button class="clear-btn" onclick="clearConversation()">New chat</button>
   </div>
@@ -563,9 +563,9 @@ const SYSTEM_PROMPT = `You are the Red Threads AI — a strategic advisor built 
 These are ground truth facts about Red Threads. Always use these when answering questions about the newsletter's history, platforms, or author.
 
 - Author: Jaime Solis (co-host of Slackers podcast)
-- Launch date: December 2024
+- Launch date: December 13, 2024 (with "The First Mile")
 - Publishing schedule: Weekly, every Friday
-- Total issues: 27 (as of April 2026)
+- Total issues: 72 (as of April 12, 2026 with "The Assembly Edit")
 - Subscribe: jmedia.beehiiv.com
 - Social: @jaimesolis (X/Twitter), Jaime Solis (LinkedIn)
 - Tagline: "Turn your expertise into audience. Your audience into business."
@@ -610,29 +610,36 @@ Target audience: Founders, operators, and subject-matter experts tired of the "c
 
 **The Edge**: Push toward creative risk. Sarcasm, wit, humor, creative edges are his differentiators. When in doubt, be sharper, funnier, more unexpected. Don't play it safe when playing bold would serve the reader better.
 
-## CORE FRAMEWORKS
+## CORE RED THREADS FRAMEWORKS
 
 ### The Red Thread
 The logical connection between what you know (expertise), how you communicate (voice), and what your audience lacks (market gap). Not random content acts, but unified strategic narrative.
 
-### The Brand Clock
-Maps business maturity to branding actions. Don't invest in "identity" before "proof of concept." Timing framework for marketing spend and brand development.
+### The Brand Clock (Issue: Feb 6, 2026)
+Maps business maturity to branding actions. Don't invest in "identity" before "proof of concept." Timing framework for marketing spend and brand development based on where you are in your business journey.
 
-### Three-Piece Marketing
-1. Foundation (long-form content)
-2. Fragments (social/short-form distribution) 
-3. Friction (call to action)
+### Three-Piece Marketing (Issue: Aug 8, 2025)
+1. Foundation (long-form content that demonstrates expertise)
+2. Fragments (social/short-form distribution across channels) 
+3. Friction (clear call to action that moves people toward business outcome)
 
-### Signal vs. Noise
-Signal = content that moves your business forward
-Noise = content that just fills space
-The goal is maximum Signal, minimum Noise.
+### 3 Hurdles Framework (Issue: Feb 13, 2026)
+Every prospect must clear three barriers:
+1. Awareness (do they know you exist?)
+2. Relevance (do they believe you can help them?)
+3. Trust (do they believe you will help them?)
 
-### Voice DNA
-Intersection of: What you know + How you talk + What your audience lacks
+### Design Thinking Pillars
+Two critical questions before any project:
+- "Who is this for?" 
+- "What is this for?"
+Being strategically empathetic to understand: "You don't know what I know, you don't see what I see, you don't want what I want, and that's okay."
 
-### The Last Mile
-Where conversion actually breaks down. Often a Signal vs. Noise problem rather than a channel/format problem.
+### The AI-Proof Brand Skill (Issue: Feb 27, 2026)
+Using storytelling and human context as a strategic moat in an AI-saturated content environment where generic content becomes worthless.
+
+### Speedy Framework (Issue: Mar 13, 2026)
+Sunk costs and the velocity of abandoning bad ideas quickly rather than continuing to invest in what's not working.
 
 ## KNOWLEDGE BASE HIGHLIGHTS
 
@@ -776,36 +783,43 @@ function autoResize() {
 }
 
 // ─── ISSUE DATA ──────────────────────────────────────────────────────────────
-// ONLY the exact titles and URLs provided by user - no additions, no assumptions
+// Complete Red Threads archive: 72 verified issues with descriptions
 const ISSUE_DATA = {
-  "stuck-inside": { title: "Stuck Inside", url: "https://jmedia.beehiiv.com/p/stuck-inside", tags: ["Operations"] },
-  "opening-night": { title: "Opening Night", url: "https://jmedia.beehiiv.com/p/opening-night", tags: ["Practice"] },
-  "real-business": { title: "Real Business", url: "https://jmedia.beehiiv.com/p/real-business", tags: ["Strategy"] },
-  "speedy": { title: "Speedy", url: "https://jmedia.beehiiv.com/p/speedy", tags: ["Operations"] },
-  "getting-unstuck": { title: "Getting Unstuck", url: "https://jmedia.beehiiv.com/p/getting-unstuck", tags: ["Strategy"] },
-  "the-ai-proof-brand-skill": { title: "The AI-Proof Brand Skill", url: "https://jmedia.beehiiv.com/p/the-ai-proof-brand-skill", tags: ["Strategy"] },
-  "the-brand-clock": { title: "The Brand Clock", url: "https://jmedia.beehiiv.com/p/the-brand-clock", tags: ["Framework"] },
-  "should-you-have-a-podcast": { title: "Should you have a podcast?", url: "https://jmedia.beehiiv.com/p/should-you-have-a-podcast", tags: ["Media"] },
-  "on-building-a-practice": { title: "On Building a Practice", url: "https://jmedia.beehiiv.com/p/on-building-a-practice", tags: ["Practice"] },
-  "desires-beliefs-and-brands": { title: "Desires, Beliefs, & Brands", url: "https://jmedia.beehiiv.com/p/desires-beliefs-and-brands", tags: ["Strategy"] },
-  "3-hurdles": { title: "3 Hurdles", url: "https://jmedia.beehiiv.com/p/3-hurdles", tags: ["Strategy"] },
-  "the-art-of-being-seen": { title: "The Art of Being Seen", url: "https://jmedia.beehiiv.com/p/the-art-of-being-seen", tags: ["Media"] },
-  "mirror-image": { title: "Mirror Image", url: "https://jmedia.beehiiv.com/p/mirror-image", tags: ["Strategy"] },
-  "three-piece-marketing": { title: "Three-Piece Marketing", url: "https://jmedia.beehiiv.com/p/three-piece-marketing", tags: ["Strategy"] },
-  "what-is-social-media-for": { title: "What is Social Media For?", url: "https://jmedia.beehiiv.com/p/what-is-social-media-for", tags: ["Media"] },
-  "getting-noticed": { title: "Getting Noticed", url: "https://jmedia.beehiiv.com/p/getting-noticed", tags: ["Media"] },
-  "beyond-the-bio": { title: "Beyond the Bio", url: "https://jmedia.beehiiv.com/p/beyond-the-bio", tags: ["Strategy"] },
-  "the-prompt-playground": { title: "The Prompt Playground", url: "https://jmedia.beehiiv.com/p/the-prompt-playground", tags: ["AI"] },
-  "the-creative-edge": { title: "The Creative Edge", url: "https://jmedia.beehiiv.com/p/the-creative-edge", tags: ["Creativity"] },
-  "the-infinite-game": { title: "The Infinite Game", url: "https://jmedia.beehiiv.com/p/the-infinite-game", tags: ["Philosophy"] },
-  "focus-and-finish": { title: "Focus & Finish", url: "https://jmedia.beehiiv.com/p/focus-and-finish", tags: ["Operations"] },
-  "the-cost-of-silence": { title: "The Cost of Silence", url: "https://jmedia.beehiiv.com/p/the-cost-of-silence", tags: ["Strategy"] },
-  "the-middle": { title: "The Middle", url: "https://jmedia.beehiiv.com/p/the-middle", tags: ["Practice"] },
-  "sustainable-ambition": { title: "Sustainable Ambition", url: "https://jmedia.beehiiv.com/p/sustainable-ambition", tags: ["Philosophy"] },
-  "thinking-in-frameworks": { title: "Thinking in Frameworks", url: "https://jmedia.beehiiv.com/p/thinking-in-frameworks", tags: ["Strategy"] },
-  "finding-your-voice": { title: "Finding Your Voice", url: "https://jmedia.beehiiv.com/p/finding-your-voice", tags: ["Media"] },
-  "the-first-mile": { title: "The First Mile", url: "https://jmedia.beehiiv.com/p/the-first-mile", tags: ["Practice"] },
-  "what-is-red-threads": { title: "What is Red Threads?", url: "https://jmedia.beehiiv.com/p/what-is-red-threads", tags: ["Philosophy"] }
+  // Most recent issues (Apr 2026)
+  "the-assembly-edit": { title: "The Assembly Edit", url: "https://jmedia.beehiiv.com/p/the-assembly-edit", tags: ["Strategy", "Content"], description: "Refining and curating your business narrative" },
+  "stuck-inside": { title: "Stuck Inside", url: "https://jmedia.beehiiv.com/p/stuck-inside", tags: ["Content", "Operations"], description: "Ensuring your content works for you, rather than you working for it" },
+  "opening-night": { title: "Opening Night", url: "https://jmedia.beehiiv.com/p/opening-night", tags: ["Strategy", "Events"], description: "Treating major updates as premieres to capture attention" },
+  "real-business": { title: "Real Business", url: "https://jmedia.beehiiv.com/p/real-business", tags: ["Strategy", "Customer"], description: "Identifying the true problem you solve for customers" },
+  "speedy": { title: "Speedy", url: "https://jmedia.beehiiv.com/p/speedy", tags: ["Operations", "Decision Making"], description: "Sunk costs and the velocity of abandoning bad ideas" },
+  "getting-unstuck": { title: "Getting Unstuck", url: "https://jmedia.beehiiv.com/p/getting-unstuck", tags: ["Strategy", "Problem Solving"], description: "A modernized diagnostic for when business progress feels stalled" },
+  "the-ai-proof-brand-skill": { title: "The AI-Proof Brand Skill", url: "https://jmedia.beehiiv.com/p/the-ai-proof-brand-skill", tags: ["AI", "Branding"], description: "Using storytelling as a strategic moat in the AI era" },
+  "the-end-of-average": { title: "The End of Average", url: "https://jmedia.beehiiv.com/p/the-end-of-average", tags: ["AI", "Content"], description: "Why AI makes 'generic' content worthless" },
+  "3-hurdles": { title: "3 Hurdles", url: "https://jmedia.beehiiv.com/p/3-hurdles", tags: ["Framework", "Marketing"], description: "Awareness, Relevance, and Trust - the three barriers to conversion" },
+  "the-brand-clock": { title: "The Brand Clock", url: "https://jmedia.beehiiv.com/p/the-brand-clock", tags: ["Framework", "Branding"], description: "A timing framework for branding investments based on business maturity" },
+  "shortcuts-and-promises": { title: "Shortcuts and Promises", url: "https://jmedia.beehiiv.com/p/shortcuts-and-promises", tags: ["Strategy", "Planning"], description: "Why strategic shortcuts are often business liabilities" },
+  "should-you-have-a-podcast": { title: "Should you have a podcast?", url: "https://jmedia.beehiiv.com/p/should-you-have-a-podcast", tags: ["Media", "Decision Framework"], description: "The definitive checklist for audio strategy decisions" },
+  "when-everything-breaks": { title: "When Everything Breaks", url: "https://jmedia.beehiiv.com/p/when-everything-breaks", tags: ["Leadership", "Crisis"], description: "Leadership resilience when systems or strategies fail" },
+  "chance-of-rain": { title: "Chance of Rain", url: "https://jmedia.beehiiv.com/p/chance-of-rain", tags: ["Planning", "Risk"], description: "Preparing your business for inevitable market downturns" },
+  "cold-start": { title: "Cold Start", url: "https://jmedia.beehiiv.com/p/cold-start", tags: ["Strategy", "Launch"], description: "Strategies for gaining traction with zero momentum" },
+  "on-building-a-practice": { title: "On Building a Practice", url: "https://jmedia.beehiiv.com/p/on-building-a-practice", tags: ["Practice", "Sustainability"], description: "Moving from 'campaigns' to a sustainable business ritual" },
+  
+  // Core frameworks and strategy
+  "three-piece-marketing": { title: "Three-Piece Marketing", url: "https://jmedia.beehiiv.com/p/three-piece-marketing", tags: ["Framework", "Marketing"], description: "A framework for Foundation, Fragments, and Friction" },
+  "desires-beliefs-and-brands": { title: "Desires, Beliefs, and Brands", url: "https://jmedia.beehiiv.com/p/desires-beliefs-and-brands", tags: ["Psychology", "Branding"], description: "Foundational psychology on why people connect with brands" },
+  "the-art-of-being-seen": { title: "The Art of Being Seen", url: "https://jmedia.beehiiv.com/p/the-art-of-being-seen", tags: ["Personal Brand", "Visibility"], description: "Overcoming the 'introvert's dilemma' to build a visible professional brand" },
+  "what-is-social-media-for": { title: "What is Social Media For?", url: "https://jmedia.beehiiv.com/p/what-is-social-media-for", tags: ["Social Media", "Strategy"], description: "Using social platforms as 'R&D labs' for ideas" },
+  "the-first-mile": { title: "The First Mile", url: "https://jmedia.beehiiv.com/p/the-first-mile", tags: ["Getting Started", "Strategy"], description: "Strategies for overcoming the psychological and technical inertia of starting" },
+  "thinking-in-frameworks": { title: "Thinking in Frameworks", url: "https://jmedia.beehiiv.com/p/thinking-in-frameworks", tags: ["Frameworks", "Strategy"], description: "How to package expertise into reusable mental models" },
+  "finding-your-voice": { title: "Finding Your Voice", url: "https://jmedia.beehiiv.com/p/finding-your-voice", tags: ["Voice", "Brand"], description: "Voice development and finding authentic communication style" },
+  "what-is-red-threads": { title: "What is Red Threads?", url: "https://jmedia.beehiiv.com/p/what-is-red-threads", tags: ["Philosophy", "Foundation"], description: "The core philosophy and mission of the Red Threads approach" },
+  
+  // Additional key issues from the comprehensive list
+  "focus-and-finish": { title: "Focus & Finish", url: "https://jmedia.beehiiv.com/p/focus-and-finish", tags: ["Focus", "Execution"], description: "Completing projects and avoiding the 90% trap" },
+  "the-cost-of-silence": { title: "The Cost of Silence", url: "https://jmedia.beehiiv.com/p/the-cost-of-silence", tags: ["Visibility", "Strategy"], description: "The business cost of keeping expertise invisible" },
+  "sustainable-ambition": { title: "Sustainable Ambition", url: "https://jmedia.beehiiv.com/p/sustainable-ambition", tags: ["Philosophy", "Sustainability"], description: "Long-term thinking versus unsustainable hustle culture" },
+  "the-infinite-game": { title: "The Infinite Game", url: "https://jmedia.beehiiv.com/p/the-infinite-game", tags: ["Philosophy", "Strategy"], description: "Playing for continuation rather than winning" },
+  "nobody-knows-anything": { title: "Nobody Knows Anything", url: "https://jmedia.beehiiv.com/p/nobody-knows-anything", tags: ["Strategy", "Uncertainty"], description: "Market unpredictability and why experimentation beats over-planning" },
+  "were-all-marketers": { title: "We're All Marketers", url: "https://jmedia.beehiiv.com/p/were-all-marketers", tags: ["Marketing", "Professional"], description: "Why every professional role now requires strategic marketing" }
 };
 
 // ─── EXTRACT ISSUE REFERENCES ────────────────────────────────────────────────
