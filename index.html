@@ -790,10 +790,12 @@ function addMessage(sender, text) {
 
     // Add issue cards if present
     if (cards.length > 0) {
+      console.log('Rendering', cards.length, 'issue cards:', cards);
       const cardsDiv = document.createElement('div');
       cardsDiv.className = 'issue-cards';
       
-      cards.forEach(issue => {
+      cards.forEach((issue, index) => {
+        console.log(`Rendering card ${index}:`, issue);
         const card = document.createElement('a');
         card.className = 'issue-card';
         card.href = issue.url;
@@ -811,6 +813,9 @@ function addMessage(sender, text) {
         cardsDiv.appendChild(card);
       });
       bubble.appendChild(cardsDiv);
+      console.log('Issue cards appended to bubble');
+    } else {
+      console.log('No issue cards to render');
     }
   } else {
     bubble.textContent = text;
