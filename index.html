@@ -645,21 +645,20 @@ USE: "content assets," "the red thread," "signal vs. noise," "brand clock," "voi
 - Use specific Red Threads frameworks when relevant
 - Reference newsletter issues when helpful (render as cards)
 
-## ISSUE CARD FORMAT
-When recommending specific issues, format as:
-ISSUE_CARDS:[{"title": "Issue Title", "url": "https://jmedia.beehiiv.com/p/url-slug", "tags": ["Tag1", "Tag2"], "number": "##"}]
+## ISSUE RECOMMENDATIONS
+When recommending specific Red Threads issues, simply mention them naturally in your response like "Issue 7 covers this" or "check out Issue 10". The system will automatically detect these references and render issue cards.
 
-Available issues for cards:
-1. "What is Red Threads?" - https://jmedia.beehiiv.com/p/what-is-red-threads - ["Philosophy", "Strategy"]
-2. "The First Mile" - https://jmedia.beehiiv.com/p/the-first-mile - ["Practice", "Operations"] 
-3. "Finding Your Voice" - https://jmedia.beehiiv.com/p/finding-your-voice - ["Tactics", "Media"]
-4. "Thinking in Frameworks" - https://jmedia.beehiiv.com/p/thinking-in-frameworks - ["Strategy", "DesignThinking"]
-5. "The Art of Being Seen" - https://jmedia.beehiiv.com/p/the-art-of-being-seen - ["Media", "Psychology"]
-6. "Three-Piece Marketing" - https://jmedia.beehiiv.com/p/three-piece-marketing - ["Tactics", "Strategy"]
-7. "Signal vs. Noise" - https://jmedia.beehiiv.com/p/signal-vs-noise - ["Strategy", "Media"]
-8. "The Brand Clock" - https://jmedia.beehiiv.com/p/the-brand-clock - ["Strategy", "Framework"]
-9. "Should you have a podcast?" - https://jmedia.beehiiv.com/p/should-you-have-a-podcast - ["Media", "Tactics"]
-10. "The Last Mile" - https://jmedia.beehiiv.com/p/the-last-mile - ["Strategy", "Operations"]
+Available issues:
+- Issue 1: "What is Red Threads?" - Core philosophy
+- Issue 2: "The First Mile" - Getting started
+- Issue 3: "Finding Your Voice" - Voice development
+- Issue 4: "Thinking in Frameworks" - Framework building
+- Issue 5: "The Art of Being Seen" - Personal branding
+- Issue 6: "Three-Piece Marketing" - Content distribution
+- Issue 7: "Signal vs. Noise" - Content quality
+- Issue 8: "The Brand Clock" - Strategic timing
+- Issue 9: "Should you have a podcast?" - Media format decisions
+- Issue 10: "The Last Mile" - Conversion optimization
 
 ## SCOPE
 FOR: Content strategy, brand positioning, media format decisions, marketing frameworks, sustainable growth, operational efficiency, creative direction
@@ -732,42 +731,48 @@ function autoResize() {
   inputEl.style.height = Math.min(inputEl.scrollHeight, 140) + 'px';
 }
 
-// ─── PARSE ISSUE CARDS ────────────────────────────────────────────────────────
-function parseIssueCards(text) {
-  console.log('🔍 parseIssueCards called with:', text);
+// ─── ISSUE DATA ──────────────────────────────────────────────────────────────
+const ISSUE_DATA = {
+  1: { title: "What is Red Threads?", url: "https://jmedia.beehiiv.com/p/what-is-red-threads", tags: ["Philosophy", "Strategy"] },
+  2: { title: "The First Mile", url: "https://jmedia.beehiiv.com/p/the-first-mile", tags: ["Practice", "Operations"] },
+  3: { title: "Finding Your Voice", url: "https://jmedia.beehiiv.com/p/finding-your-voice", tags: ["Tactics", "Media"] },
+  4: { title: "Thinking in Frameworks", url: "https://jmedia.beehiiv.com/p/thinking-in-frameworks", tags: ["Strategy", "DesignThinking"] },
+  5: { title: "The Art of Being Seen", url: "https://jmedia.beehiiv.com/p/the-art-of-being-seen", tags: ["Media", "Psychology"] },
+  6: { title: "Three-Piece Marketing", url: "https://jmedia.beehiiv.com/p/three-piece-marketing", tags: ["Tactics", "Strategy"] },
+  7: { title: "Signal vs. Noise", url: "https://jmedia.beehiiv.com/p/signal-vs-noise", tags: ["Strategy", "Media"] },
+  8: { title: "The Brand Clock", url: "https://jmedia.beehiiv.com/p/the-brand-clock", tags: ["Strategy", "Framework"] },
+  9: { title: "Should you have a podcast?", url: "https://jmedia.beehiiv.com/p/should-you-have-a-podcast", tags: ["Media", "Tactics"] },
+  10: { title: "The Last Mile", url: "https://jmedia.beehiiv.com/p/the-last-mile", tags: ["Strategy", "Operations"] }
+};
+
+// ─── EXTRACT ISSUE REFERENCES ────────────────────────────────────────────────
+function extractIssueRefs(text) {
+  console.log('🔍 Extracting issue refs from:', text);
+  const refs = [];
   
-  // Simple, robust approach
-  const lines = text.split('\n');
-  const cardLines = lines.filter(line => line.includes('ISSUE_CARDS:'));
-  console.log('📋 Found card lines:', cardLines);
+  // Look for patterns like "Issue 7", "issue 10", "#7", etc.
+  const patterns = [
+    /Issue\s+(\d+)/gi,
+    /issue\s+(\d+)/gi,
+    /#(\d+)/g,
+    /\b(\d+)\b/g  // Any number that might be an issue reference
+  ];
   
-  let allCards = [];
+  const foundNumbers = new Set();
   
-  for (const line of cardLines) {
-    const jsonStart = line.indexOf('[');
-    const jsonEnd = line.lastIndexOf(']');
-    
-    if (jsonStart !== -1 && jsonEnd !== -1) {
-      const jsonStr = line.substring(jsonStart, jsonEnd + 1);
-      console.log('🔧 Attempting to parse JSON:', jsonStr);
-      
-      try {
-        const cards = JSON.parse(jsonStr);
-        console.log('✅ Successfully parsed cards:', cards);
-        allCards = allCards.concat(cards);
-      } catch (e) {
-        console.error('❌ JSON parse error:', e);
+  patterns.forEach(pattern => {
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      const num = parseInt(match[1]);
+      if (num >= 1 && num <= 27 && ISSUE_DATA[num]) {
+        foundNumbers.add(num);
       }
     }
-  }
+  });
   
-  // Remove all ISSUE_CARDS lines
-  const cleanLines = lines.filter(line => !line.includes('ISSUE_CARDS:'));
-  const cleanText = cleanLines.join('\n').trim();
-  
-  console.log('🎯 Final result - cards:', allCards, 'cleanText length:', cleanText.length);
-  
-  return { cleanText, cards: allCards };
+  const result = Array.from(foundNumbers).sort((a, b) => a - b);
+  console.log('📋 Found issue references:', result);
+  return result;
 }
 
 // ─── ADD MESSAGE ──────────────────────────────────────────────────────────────
@@ -784,12 +789,14 @@ function addMessage(sender, text) {
 
   if (sender === 'agent') {
     console.log('Processing agent message:', text);
-    const { cleanText, cards } = parseIssueCards(text);
-    console.log('After parseIssueCards - cleanText:', cleanText);
-    console.log('After parseIssueCards - cards:', cards);
-    console.log('Cards length:', cards ? cards.length : 'cards is null/undefined');
     
-    // Add main text (filter out any remaining ISSUE_CARDS lines)
+    // Look for issue references in the text
+    const issueRefs = extractIssueRefs(text);
+    
+    // Clean up the text (remove any leftover ISSUE_CARDS lines)
+    const cleanText = text.replace(/ISSUE_CARDS:.*$/gm, '').trim();
+    
+    // Add main text
     const lines = cleanText.split('\n')
       .filter(line => line.trim())
       .filter(line => !line.includes('ISSUE_CARDS:'));
@@ -800,24 +807,25 @@ function addMessage(sender, text) {
       bubble.appendChild(p);
     });
 
-    // Add issue cards if present
-    console.log('Final check - cards array:', cards, 'length:', cards ? cards.length : 'undefined');
-    if (cards && Array.isArray(cards) && cards.length > 0) {
-      console.log('✅ Rendering', cards.length, 'issue cards:', cards);
+    // Add issue cards if we found any references
+    if (issueRefs.length > 0) {
+      console.log('✅ Rendering', issueRefs.length, 'issue cards for:', issueRefs);
       const cardsDiv = document.createElement('div');
       cardsDiv.className = 'issue-cards';
       
-      cards.forEach((issue, index) => {
-        console.log(`Rendering card ${index}:`, issue);
+      issueRefs.forEach(num => {
+        const issue = ISSUE_DATA[num];
+        if (!issue) return;
+        
+        console.log(`Rendering issue card ${num}:`, issue);
         const card = document.createElement('a');
         card.className = 'issue-card';
         card.href = issue.url;
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
         
-        const num = issue.number || '##';
         card.innerHTML = `
-          <div class="issue-num">${num}</div>
+          <div class="issue-num">#${num}</div>
           <div class="issue-info">
             <div class="issue-title">${issue.title}</div>
             <div class="issue-tags">${issue.tags.map(t => `<span class="issue-tag">${t}</span>`).join('')}</div>
@@ -828,7 +836,7 @@ function addMessage(sender, text) {
       bubble.appendChild(cardsDiv);
       console.log('✅ Issue cards appended to bubble');
     } else {
-      console.log('❌ No issue cards to render - cards:', cards);
+      console.log('No issue references found in text');
     }
   } else {
     bubble.textContent = text;
