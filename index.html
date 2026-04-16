@@ -796,8 +796,9 @@ function addMessage(sender, text) {
     });
 
     // Add issue cards if present
-    if (cards && cards.length > 0) {
-      console.log('Rendering', cards.length, 'issue cards:', cards);
+    console.log('Final check - cards array:', cards, 'length:', cards ? cards.length : 'undefined');
+    if (cards && Array.isArray(cards) && cards.length > 0) {
+      console.log('✅ Rendering', cards.length, 'issue cards:', cards);
       const cardsDiv = document.createElement('div');
       cardsDiv.className = 'issue-cards';
       
@@ -820,9 +821,9 @@ function addMessage(sender, text) {
         cardsDiv.appendChild(card);
       });
       bubble.appendChild(cardsDiv);
-      console.log('Issue cards appended to bubble');
+      console.log('✅ Issue cards appended to bubble');
     } else {
-      console.log('No issue cards to render - cards:', cards);
+      console.log('❌ No issue cards to render - cards:', cards);
     }
   } else {
     bubble.textContent = text;
