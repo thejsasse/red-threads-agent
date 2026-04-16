@@ -734,15 +734,30 @@ function autoResize() {
 
 // ─── PARSE ISSUE CARDS ────────────────────────────────────────────────────────
 function parseIssueCards(text) {
-  const cardPattern = /ISSUE_CARDS:(\[.*?\])/s;
+  console.log('Original text:', text);
+  
+  // Look for the ISSUE_CARDS pattern
+  const cardPattern = /ISSUE_CARDS:\s*(\[[\s\S]*?\])/;
   const match = text.match(cardPattern);
-  if (!match) return { cleanText: text, cards: [] };
+  
+  if (!match) {
+    console.log('No ISSUE_CARDS pattern found');
+    return { cleanText: text, cards: [] };
+  }
+  
+  console.log('Found ISSUE_CARDS match:', match[0]);
+  console.log('JSON part:', match[1]);
   
   try {
     const cards = JSON.parse(match[1]);
-    const cleanText = text.replace(cardPattern, '').trim();
+    // Remove the entire ISSUE_CARDS line from the text
+    const cleanText = text.replace(match[0], '').trim();
+    console.log('Parsed cards successfully:', cards);
+    console.log('Clean text:', cleanText);
     return { cleanText, cards };
   } catch (e) {
+    console.error('JSON parse error:', e);
+    console.log('Failed JSON:', match[1]);
     return { cleanText: text, cards: [] };
   }
 }
