@@ -734,34 +734,39 @@ function autoResize() {
 
 // ─── PARSE ISSUE CARDS ────────────────────────────────────────────────────────
 function parseIssueCards(text) {
-  console.log('Original text:', text);
+  console.log('🔍 parseIssueCards called with:', text);
   
-  // Look for ALL ISSUE_CARDS patterns and collect them
-  const cardPattern = /ISSUE_CARDS:\s*(\[[\s\S]*?\])/g;
+  // Simple, robust approach
+  const lines = text.split('\n');
+  const cardLines = lines.filter(line => line.includes('ISSUE_CARDS:'));
+  console.log('📋 Found card lines:', cardLines);
+  
   let allCards = [];
-  let cleanText = text;
-  let match;
   
-  // Find all matches
-  while ((match = cardPattern.exec(text)) !== null) {
-    console.log('Found ISSUE_CARDS match:', match[0]);
-    console.log('JSON part:', match[1]);
+  for (const line of cardLines) {
+    const jsonStart = line.indexOf('[');
+    const jsonEnd = line.lastIndexOf(']');
     
-    try {
-      const cards = JSON.parse(match[1]);
-      allCards = allCards.concat(cards);
-      console.log('Parsed cards from this match:', cards);
-    } catch (e) {
-      console.error('JSON parse error:', e);
-      console.log('Failed JSON:', match[1]);
+    if (jsonStart !== -1 && jsonEnd !== -1) {
+      const jsonStr = line.substring(jsonStart, jsonEnd + 1);
+      console.log('🔧 Attempting to parse JSON:', jsonStr);
+      
+      try {
+        const cards = JSON.parse(jsonStr);
+        console.log('✅ Successfully parsed cards:', cards);
+        allCards = allCards.concat(cards);
+      } catch (e) {
+        console.error('❌ JSON parse error:', e);
+      }
     }
   }
   
-  // Remove ALL ISSUE_CARDS lines from the text
-  cleanText = cleanText.replace(/ISSUE_CARDS:\s*\[[\s\S]*?\]/g, '').trim();
+  // Remove all ISSUE_CARDS lines
+  const cleanLines = lines.filter(line => !line.includes('ISSUE_CARDS:'));
+  const cleanText = cleanLines.join('\n').trim();
   
-  console.log('All parsed cards:', allCards);
-  console.log('Clean text:', cleanText);
+  console.log('🎯 Final result - cards:', allCards, 'cleanText length:', cleanText.length);
+  
   return { cleanText, cards: allCards };
 }
 
