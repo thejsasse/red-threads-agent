@@ -777,8 +777,11 @@ function addMessage(sender, text) {
   if (sender === 'agent') {
     const { cleanText, cards } = parseIssueCards(text);
     
-    // Add main text
-    const lines = cleanText.split('\n').filter(line => line.trim());
+    // Add main text (filter out any remaining ISSUE_CARDS lines)
+    const lines = cleanText.split('\n')
+      .filter(line => line.trim())
+      .filter(line => !line.includes('ISSUE_CARDS:'));
+    
     lines.forEach((line, i) => {
       const p = document.createElement('p');
       p.textContent = line;
