@@ -571,7 +571,7 @@
   
   <!-- Version Footer -->
   <div class="version-footer">
-    <span class="version-text">Red Threads AI v1.0.9</span>
+    <span class="version-text">Red Threads AI v1.1.0</span>
   </div>
 </div>
 
@@ -822,6 +822,23 @@ inputEl.addEventListener('keydown', e => {
   }
 });
 
+// Add missing click handler for send button
+sendBtn.addEventListener('click', (e) => {
+  console.log('Send button clicked', { disabled: sendBtn.disabled, text: inputEl.value });
+  if (!sendBtn.disabled) {
+    sendMessage();
+  }
+});
+
+// Add touch event handling for mobile compatibility
+sendBtn.addEventListener('touchend', (e) => {
+  e.preventDefault(); // Prevent double-firing with click event
+  console.log('Send button touched', { disabled: sendBtn.disabled, text: inputEl.value });
+  if (!sendBtn.disabled) {
+    sendMessage();
+  }
+});
+
 function autoResize() {
   inputEl.style.height = 'auto';
   inputEl.style.height = Math.min(inputEl.scrollHeight, 140) + 'px';
@@ -1054,13 +1071,13 @@ function clearConversation() {
   suggestionsEl.style.display = 'flex';
   errorNote.style.display = 'none';
   setTimeout(() => {
-    const greeting = `I'm the Red Threads AI, built on the strategic insights from Jaime Solis's weekly newsletter about turning expertise into business. 
+    const greeting = `I'm the Red Threads AI, built on Jaime Solis's newsletter that brings ideas from unexpected places to change how you see your work.
 
-Red Threads isn't about more content. It's about smarter content that works as hard as you do.
+The promise: one pattern per week, pulled from somewhere you weren't looking, that reframes something hiding in plain sight inside your business.
 
-Whether you're stuck on the content treadmill, trying to find your voice in a crowded market, or wondering when to invest in brand development, I'm here to help you find your Red Thread — the logic that connects what you know to what your audience needs.
+I'm here for builders who trust their instincts but want a sharper lens.
 
-What content or brand challenge are you working through?`;
+What are you building that could use a fresh perspective?`;
     addMessage('agent', greeting);
     conversation.push({ role: 'assistant', content: greeting });
   }, 200);
