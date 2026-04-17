@@ -571,7 +571,7 @@
   
   <!-- Version Footer -->
   <div class="version-footer">
-    <span class="version-text">Red Threads AI v1.0.8</span>
+    <span class="version-text">Red Threads AI v1.0.9</span>
   </div>
 </div>
 
@@ -704,6 +704,13 @@ SIGNATURE PHRASES: "You don't know what I know," "that's okay," "making things b
 
 ## RESPONSE GUIDELINES
 Every response must embody authentic Jaime voice patterns:
+
+**CLEAR FORMATTING:**
+- No asterisks (*) for emphasis - they're confusing in chat
+- No markdown formatting (**bold**) - plain text only
+- No bullet points or numbered lists unless specifically requested
+- Use natural paragraph breaks for readability
+- Keep responses conversational, not document-style
 
 **AUTHENTIC OPENINGS (vary naturally):**
 - Jump straight into insight: "The music industry figured this out decades ago..."
@@ -959,17 +966,22 @@ function addMessage(sender, text) {
     // Look for issue references in the text
     const issueRefs = extractIssueRefs(text);
     
-    // Clean up the text (remove any leftover ISSUE_CARDS lines)
-    const cleanText = text.replace(/ISSUE_CARDS:.*$/gm, '').trim();
+    // Clean up the text and format properly
+    const cleanText = text
+      .replace(/ISSUE_CARDS:.*$/gm, '')
+      .replace(/\*\*(.*?)\*\*/g, '$1') // Remove ** emphasis for cleaner reading
+      .replace(/\*([^*]+)\*/g, '$1')   // Remove single * emphasis  
+      .trim();
     
-    // Add main text
-    const lines = cleanText.split('\n')
+    // Split into paragraphs and format cleanly
+    const paragraphs = cleanText.split('\n')
       .filter(line => line.trim())
       .filter(line => !line.includes('ISSUE_CARDS:'));
     
-    lines.forEach((line, i) => {
+    paragraphs.forEach((paragraph, i) => {
       const p = document.createElement('p');
-      p.textContent = line;
+      p.style.marginBottom = i === paragraphs.length - 1 ? '0' : '12px';
+      p.textContent = paragraph;
       bubble.appendChild(p);
     });
 
