@@ -1024,8 +1024,10 @@ function addMessage(sender, text) {
         card.innerHTML = `
           <div class="issue-num">RT</div>
           <div class="issue-info">
-            <div class="issue-title">${issue.title}</div>
-            <div class="issue-tags">${issue.tags.map(t => `<span class="issue-tag">${t}</span>`).join('')}</div>
+            <div class="issue-header">
+              <span class="issue-title">${issue.title}</span>
+              ${issue.tags.map(t => `<span class="issue-tag">${t}</span>`).join('')}
+            </div>
             <div class="issue-read">Read →</div>
           </div>`;
         cardsDiv.appendChild(card);
